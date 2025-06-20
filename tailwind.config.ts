@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme'; // Import defaultTheme
 
 export default {
 	darkMode: ["class"],
@@ -52,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
+				sidebar: { // These will now reflect the updated CSS variables
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
@@ -68,6 +69,10 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: { // Added fontFamily extension
+                sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+                heading: ['var(--font-heading)', ...defaultTheme.fontFamily.sans], // Fallback to sans
+            },
 			keyframes: {
 				'accordion-down': {
 					from: {
